@@ -6,7 +6,9 @@
 <title>Sistema de Gestión</title>
 
 <link rel="stylesheet" href="{{ asset('css/bootstrap5.8.3/css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/propiety.css') }}">
+<style>
+
+</style>
 
 </head>
 
