@@ -6,7 +6,7 @@ use App\Http\Controllers\usercontroller;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/enlace', [usercontroller::class, 'index'])->name('enlace');
+#Route::get('/enlace', [usercontroller::class, 'index'])->name('enlace');
 Route::get('/landing', function () {
     return view('landing');
 });

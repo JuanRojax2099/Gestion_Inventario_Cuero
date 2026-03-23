@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\FactoryMethod\interfaceFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class insumos extends Model
+class insumos extends Model implements interfaceFactory
 {
     use HasFactory;
 #Tablas de mi base de datos.
@@ -19,4 +20,7 @@ class insumos extends Model
         'proveedor'
 
     ];
+    public function createInventory($nombre){
+        //
+    }
 }
