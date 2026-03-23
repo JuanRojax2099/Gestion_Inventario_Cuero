@@ -4,25 +4,10 @@
 <meta charset="UTF-8">
 <title>Calendario de Producción</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('css/bootstrap5.8.3/css/bootstrap.min.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-
-<style>
-
-.btn-verde{
-background-color:#0b3d2e;
-color:white;
-border:none;
-}
-
-.btn-verde:hover{
-background-color:#145c45;
-color:white;
-}
-
-</style>
 
 </head>
 

@@ -4,19 +4,11 @@
 <meta charset="UTF-8">
 <title>Historial Comercial</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
+<link rel="stylesheet" href="{{ asset('css/bootstrap5.8.3/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/design/landing.css') }}">
 <style>
 
-.titulo{
-color:#0b3d2e;
-font-weight:bold;
-}
 
-.tabla-header{
-background-color:#0b3d2e;
-color:white;
-}
 
 </style>
 

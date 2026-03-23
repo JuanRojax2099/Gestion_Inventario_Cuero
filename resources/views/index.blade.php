@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Sistema de Gestión</title>
-
+<link rel="stylesheet" href="{{ asset('css/design/Enter.css') }}">
 <link rel="stylesheet" href="{{ asset('css/bootstrap5.8.3/css/bootstrap.min.css') }}">
 <style>
 

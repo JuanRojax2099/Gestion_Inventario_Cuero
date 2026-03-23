@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\usercontroller;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/enlace', [usercontroller::class, 'index'])->name('enlace');
 Route::get('/landing', function () {
     return view('landing');
 });

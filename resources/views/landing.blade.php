@@ -4,30 +4,9 @@
 <meta charset="UTF-8">
 <title>Panel principal</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ asset('css/bootstrap5.8.3/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/design/landing.css') }}">
 
-<style>
-
-body{
-background-color:#f4f6f5;
-}
-
-.header{
-background-color:#0b3d2e;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-.card-menu{
-transition:0.3s;
-}
-
-.card-menu:hover{
-transform:scale(1.05);
-}
-
-</style>
 
 </head>
 
