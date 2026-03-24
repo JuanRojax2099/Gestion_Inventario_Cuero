@@ -20,6 +20,7 @@ class SignController extends Controller
             'email' =>'required|email',
             'password' =>'required'
         ]);
+        #dato validator creado anteriormente 
         if($validator->fails()){
             $data =[
                 'message'=> 'Error',
@@ -27,7 +28,7 @@ class SignController extends Controller
                 'status'=>400
             ];
             return response() ->json($data,400);
-        }
+        }#Utiliza modelo User para la creación del usaurio.
         $user = User::create([
            'name'=>$request->name,
            'email' =>$request->email,

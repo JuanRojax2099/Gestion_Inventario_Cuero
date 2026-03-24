@@ -1,5 +1,5 @@
 <?php
-
+#Todos los modelos son DE Arquitectura de diseño de datos.
 namespace App\Models;
 
 use App\FactoryMethod\interfaceFactory;
