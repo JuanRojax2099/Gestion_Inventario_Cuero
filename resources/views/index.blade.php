@@ -24,7 +24,7 @@ Sistema de gestión de procesos e insumos
 
 <div class="card p-4 shadow" style="width:350px">
 
-<form method="GET" action="/landing">
+<form method="POST" action="{{route('login')}}">
 @csrf
 <div class="mb-3">
 <label class="form-label">Correo</label>

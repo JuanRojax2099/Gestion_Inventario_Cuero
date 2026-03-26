@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class usercontroller extends Controller
 {
     public function index(){
-
-      return redirect('/api/loka');
+//
     }
 }

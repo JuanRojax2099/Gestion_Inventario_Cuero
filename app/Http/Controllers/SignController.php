@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 class SignController extends Controller
@@ -46,6 +47,19 @@ class SignController extends Controller
         return response()->json($data,201);
     }
     public function login(Request $request){
-        #Inicio de sesión.
+        $validator = $request->validate([
+            'email'=>'required|email',
+            'password'=>'required'
+        ]);
+        
+        $user = user::make([
+            'email'=> $request->email,
+            'password'=>$request->password
+        ]);
+        if($user){
+            Auth::login($user);
+            return redirect("/landing");
+        }
     }
+    
 }
