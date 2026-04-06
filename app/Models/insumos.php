@@ -10,9 +10,8 @@ class insumos extends Model implements interfaceFactory
     use HasFactory;
 #Tablas de mi base de datos.
     protected $table ='insumos';
-
+#Creación de valores guia 5 diseño cliente servidor.
     protected $fillable =[
-        'id',
         'nombre',
         'unidad',
         'cantidad',
@@ -23,4 +22,6 @@ class insumos extends Model implements interfaceFactory
     public function createInventory($nombre){
         //
     }
+      #public function GetId($id){return this->$id;}
+
 }

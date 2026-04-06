@@ -8,7 +8,7 @@ class producto extends Model implements interfaceFactorys
 {
         use HasFactory;
 #Tablas de mi base de datos.
-    protected $table ='insumos';
+    protected $table ='producto';
 
     protected $fillable =[
         'id',
@@ -20,5 +20,6 @@ class producto extends Model implements interfaceFactorys
         public function createInventory($nombre){
            //Crear Coso que meta los datos
         }
+          #public function GetId($id){return this->$id;}
 
 }

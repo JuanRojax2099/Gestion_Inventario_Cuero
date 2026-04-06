@@ -5,4 +5,6 @@ namespace App\FactoryMethod;
 interface InterfaceFactory
 {
     public function createInventory($nombre);
+
+    public function GetId($id);
 }
