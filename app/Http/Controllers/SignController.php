@@ -40,26 +40,26 @@ class SignController extends Controller
                 'message'=>'Error',
                 'status'=>500
             ];
-            return  response()->json($data, 200, $headers);
+            return  response()->json($data, 200);
         }
         $data =['user'=>$user,
         'status' => 201];
         return response()->json($data,201);
-    }
+    }#Corrigiendo conexión login con json y rest API
     public function login(Request $request){
         $validator = $request->validate([
             'email'=>'required|email',
             'password'=>'required'
         ]);
         
-        $user = user::make([
-            'email'=> $request->email,
-            'password'=>$request->password
-        ]);
-        if($user){
-            Auth::login($user);
-            return redirect("/landing");
-        }
+        $bruh = Auth::attempt(['email'=> $request->email,
+            'password'=>$request->password]);
+            $user = Auth::user();
+        $token = $user->createToken('auth_token')->plainTextToken;
+         
+        
+        return  view('landing',['token' => $token]);
+        
     }
     
 }

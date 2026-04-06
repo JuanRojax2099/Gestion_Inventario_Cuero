@@ -10,6 +10,7 @@ use App\Http\Controllers\SignController;
 Route::post('/register',[SignController::class,'store']);
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/login',[SignController::class,'login']);
+    Route::get('/landing',[SignController::class,'landingIndex']);
 });
 
 Route::get('/usertest', function (Request $request) {
