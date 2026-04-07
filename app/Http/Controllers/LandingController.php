@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+#Controlador 
 class LandingController extends Controller
 {
     public function landingIndex(Request $request){

@@ -57,7 +57,7 @@ class SignController extends Controller
             $user = Auth::user();
         $token = $user->createToken('auth_token')->plainTextToken;
          
-        
+        //REDIRIGE A LA VISTA LANDING CON EL TOKEN PARA VERIFICAR EL MIDDLEWARE
         return  view('landing',['token' => $token]);
         
     }

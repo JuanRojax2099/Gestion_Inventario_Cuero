@@ -14,6 +14,17 @@ class producto_insumo extends Model
         'producto_id',
         'insumo_id',
     ];
+
+    /**
+     * Constructor privado basado en los atributos fillable.
+     */
+    private function constructor(): void
+    {
+        foreach ($this->fillable as $attribute) {
+            $this->attributes[$attribute] = null;
+        }
+    }
+
         #public function GetId($id){return this->$id;}
 
 }

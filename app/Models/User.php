@@ -26,6 +26,16 @@ class User extends Authenticatable
     ];
 
     /**
+     * Constructor privado basado en los atributos fillable.
+     */
+    private function constructor(): void
+    {
+        foreach ($this->fillable as $attribute) {
+            $this->attributes[$attribute] = null;
+        }
+    }
+
+    /**
      * The attributes that should be hidden for serialization.
      *
      * @var list<string>

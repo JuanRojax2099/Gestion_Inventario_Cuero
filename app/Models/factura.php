@@ -16,6 +16,17 @@ class factura extends Model
         'fecha'
 
     ];
+
+    /**
+     * Constructor privado basado en los atributos fillable.
+     */
+    private function constructor(): void
+    {
+        foreach ($this->fillable as $attribute) {
+            $this->attributes[$attribute] = null;
+        }
+    }
+
         #public function GetId($id){return this->$id;}
 
 }

@@ -17,6 +17,17 @@ class producto extends Model implements interfaceFactorys
         'precio'
 
     ];
+
+    /**
+     * Constructor privado basado en los atributos fillable.
+     */
+    private function constructor(): void
+    {
+        foreach ($this->fillable as $attribute) {
+            $this->attributes[$attribute] = null;
+        }
+    }
+
         public function createInventory($nombre){
            //Crear Coso que meta los datos
         }

@@ -12,7 +12,7 @@ class factoryModel
             'insumos' => new insumos(),
             'entregas' => new entregas(),
             'facturas' => new facturas(),
-            'facturas_deta  lles' => new facturas_detalles(),
+            'facturas_detalles' => new facturas_detalles(),
             'producto_insumo' => new producto_insumo(),
             'producto' => new producto(),
             'proveedores' => new proveedores(),

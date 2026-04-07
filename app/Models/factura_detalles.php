@@ -15,6 +15,17 @@ class factura_detalles extends Model
         'producto',
         'cantidad',
     ];
+
+    /**
+     * Constructor privado basado en los atributos fillable.
+     */
+    private function constructor(): void
+    {
+        foreach ($this->fillable as $attribute) {
+            $this->attributes[$attribute] = null;
+        }
+    }
+
         #public function GetId($id){return this->$id;}
 
 }

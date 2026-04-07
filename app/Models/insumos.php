@@ -19,6 +19,17 @@ class insumos extends Model implements interfaceFactory
         'proveedor'
 
     ];
+
+    /**
+     * Constructor privado basado en los atributos fillable.
+     */
+    private function constructor(): void
+    {
+        foreach ($this->fillable as $attribute) {
+            $this->attributes[$attribute] = null;
+        }
+    }
+
     public function createInventory($nombre){
         //
     }
