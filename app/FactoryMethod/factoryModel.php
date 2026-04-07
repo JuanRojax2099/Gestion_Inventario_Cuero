@@ -1,7 +1,7 @@
 <?php
 #Clase Control de factoryMethod Diseño de patron Guia 5
 namespace App;
-
+#Primer commit de wilder.
 class factoryModel
 {
     /**
