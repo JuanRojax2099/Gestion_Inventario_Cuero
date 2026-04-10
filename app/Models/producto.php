@@ -19,7 +19,7 @@ class producto extends Model implements interfaceFactorys
     ];
 
     /**
-     * Constructor privado basado en los atributos fillable.
+     * Constructor privado basado en los atributos fillable. GUIA 6 ARQUITECTURA Y DISEÑO
      */
     private function constructor(): void
     {

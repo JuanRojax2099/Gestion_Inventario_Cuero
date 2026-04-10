@@ -8,7 +8,7 @@ class proveedores extends Model
 {
       use HasFactory;
 #Tablas de mi base de datos.
-    protected $table ='insumos';
+    protected $table ='proveedores';
 #Creación de valores guia 5 diseño cliente servidor.
     protected $fillable =[
         'nombre',
@@ -18,7 +18,7 @@ class proveedores extends Model
     ];
 
     /**
-     * Constructor privado basado en los atributos fillable.
+     * Constructor privado basado en los atributos fillable. GUIA 6 ARQUITECTURA Y DISEÑO
      */
     private function constructor(): void
     {

@@ -55,11 +55,25 @@ class SignController extends Controller
         $bruh = Auth::attempt(['email'=> $request->email,
             'password'=>$request->password]);
             $user = Auth::user();
+        
+        if(!$user){
+            return response()->json([
+                'message' => 'Credenciales inválidas',
+                'status' => 401
+            ], 401);
+        }
+        
         $token = $user->createToken('auth_token')->plainTextToken;
          
-        //REDIRIGE A LA VISTA LANDING CON EL TOKEN PARA VERIFICAR EL MIDDLEWARE
-        return  view('landing',['token' => $token]);
+        //RETORNA JSON CON TOKEN Y DATOS DEL USUARIO
+        return response()->json([
+            'message' => 'Login exitoso',
+            'user' => $user,
+            'token' => $token,
+            'status' => 200
+        ], 200);
         
     }
     
 }
+    

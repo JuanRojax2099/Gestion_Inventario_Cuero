@@ -24,20 +24,20 @@ Sistema de gestión de procesos e insumos
 
 <div class="card p-4 shadow" style="width:350px">
 
-<form method="POST" action="{{route('login')}}">
+<form id="loginForm">
 @csrf
 <div class="mb-3">
 <label class="form-label">Correo</label>
-<input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com">
+<input type="email" id="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
 </div>
 
 <div class="mb-3">
 <label class="form-label">Contraseña</label>
-<input type="password" name="password" class="form-control" placeholder="********">
+<input type="password" id="password" name="password" class="form-control" placeholder="********" required>
 </div>
 
 <div class="d-grid">
-<button class="btn btn-success">Ingresar</button>
+<button type="submit" class="btn btn-success">Ingresar</button>
 </div>
 
 </form>
@@ -48,6 +48,41 @@ Sistema de gestión de procesos e insumos
 
 <footer class="text-center text-white pb-3">
 © derechos reservados @juanadmin
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    try {
+        const response = await fetch('/api/validation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+        
+        const data = await response.json();
+        
+        if(response.ok && data.token) {
+            localStorage.setItem('auth_token', data.token);
+            window.location.href = '/landing';
+        } else {
+            alert('Error: ' + data.message);
+        }
+    } catch(error) {
+        console.error('Error:', error);
+        alert('Error en la conexión');
+    }
+});
+</script>
 </footer>
 
 </body>
