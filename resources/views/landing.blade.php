@@ -12,8 +12,13 @@
 
 <body>
 
-<div class="header">
+<div class="header d-flex justify-content-between align-items-center px-4">
 <h2>Sistema de Gestión de Marroquinería</h2>
+
+<form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+@csrf
+<button type="submit" class="btn btn-danger btn-sm">Cerrar Sesión</button>
+</form>
 </div>
 
 <div class="container mt-5">

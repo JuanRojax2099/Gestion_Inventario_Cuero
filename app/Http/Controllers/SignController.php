@@ -45,35 +45,33 @@ class SignController extends Controller
         $data =['user'=>$user,
         'status' => 201];
         return response()->json($data,201);
-    }#Corrigiendo conexión login con json y rest API
-    public function login(Request $request){
-        $validator = $request->validate([
+    }
+    
+    // Login con sesión (web.php)
+    public function loginWeb(Request $request){
+        $validated = $request->validate([
             'email'=>'required|email',
             'password'=>'required'
         ]);
         
-        $bruh = Auth::attempt(['email'=> $request->email,
-            'password'=>$request->password]);
-            $user = Auth::user();
-        
-        if(!$user){
-            return response()->json([
-                'message' => 'Credenciales inválidas',
-                'status' => 401
-            ], 401);
+        // Intentar autenticación
+        if(!Auth::attempt(['email'=> $request->email, 'password'=>$request->password])){
+            return back()->with('error', 'Credenciales inválidas')->onlyInput('email');
         }
         
-        $token = $user->createToken('auth_token')->plainTextToken;
-         
-        //RETORNA JSON CON TOKEN Y DATOS DEL USUARIO
-        return response()->json([
-            'message' => 'Login exitoso',
-            'user' => $user,
-            'token' => $token,
-            'status' => 200
-        ], 200);
+        // Regenerar sesión
+        $request->session()->regenerate();
         
+        return redirect()->intended('/landing');
     }
     
+    // Logout
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect('/');
+    }
 }
     

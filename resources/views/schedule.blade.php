@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         locale: 'es',
 
         events: function(info, successCallback, failureCallback) {
-            fetch('/entregas')
+            fetch('/api/entregas')
                 .then(response => response.json())
                 .then(data => successCallback(data))
                 .catch(error => {
@@ -69,7 +69,7 @@ function crearEntrega(){
 
     if(titulo && fecha){
 
-        fetch('/entregas', {
+        fetch('/api/entregas', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ function eliminarEntrega(){
 
         let id = eventoSeleccionado.id;
 
-        fetch('/entregas/' + id, {
+        fetch('/api/entregas/' + id, {
             method: 'DELETE',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
