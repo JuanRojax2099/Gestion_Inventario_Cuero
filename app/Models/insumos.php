@@ -1,11 +1,10 @@
 <?php
 #Todos los modelos son DE Arquitectura de diseño de datos.
 namespace App\Models;
-
 use App\FactoryMethod\interfaceFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class insumos extends Model implements interfaceFactory
+class insumos extends Model
 {
     use HasFactory;
 #Tablas de mi base de datos.
@@ -17,9 +16,7 @@ class insumos extends Model implements interfaceFactory
         'cantidad',
         'categoria',
         'proveedor'
-
     ];
-
     /**
      * Constructor privado basado en los atributos fillable. GUIA 6 ARQUITECTURA Y DISEÑO
      */
