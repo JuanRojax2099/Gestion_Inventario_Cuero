@@ -33,70 +33,86 @@ let eventoSeleccionado = null;
 
 document.addEventListener('DOMContentLoaded', function () {
 
-var calendarEl = document.getElementById('calendar');
+    var calendarEl = document.getElementById('calendar');
 
-calendar = new FullCalendar.Calendar(calendarEl, {
+    calendar = new FullCalendar.Calendar(calendarEl, {
 
-initialView: 'dayGridMonth',
+        initialView: 'dayGridMonth',
+        locale: 'es',
 
-locale: 'es',
+        events: function(info, successCallback, failureCallback) {
+            fetch('/api/entregas')
+                .then(response => response.json())
+                .then(data => successCallback(data))
+                .catch(error => {
+                    console.error('Error al cargar entregas:', error);
+                    failureCallback(error);
+                });
+        },
 
-events: [
+        eventClick: function(info) {
+            eventoSeleccionado = info.event;
+            alert("Evento seleccionado: " + info.event.title + "\nCliente: " + info.event.extendedProps.cliente + "\nFactura: " + info.event.extendedProps.factura_id);
+        }
 
-{
-title: 'Inicio producción - Carteras',
-start: '2026-03-10',
-color: '#0b3d2e'
-},
+    });
 
-{
-title: 'Entrega Cliente A',
-start: '2026-03-15',
-color: '#2e7d32'
-}
-
-],
-
-eventClick: function(info) {
-
-eventoSeleccionado = info.event;
-
-alert("Evento seleccionado: " + info.event.title);
-
-}
+    calendar.render();
 
 });
 
-calendar.render();
-
-});
 
 function crearEntrega(){
 
-let titulo = prompt("Nombre de la entrega o producción:");
-let fecha = prompt("Fecha (YYYY-MM-DD):");
+    let titulo = prompt("Nombre del cliente:");
+    let fecha = prompt("Fecha (YYYY-MM-DD):");
 
-if(titulo && fecha){
+    if(titulo && fecha){
 
-calendar.addEvent({
-title: titulo,
-start: fecha,
-color: "#2e7d32"
-});
+        fetch('/api/entregas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({
+                factura_id: 1,
+                fecha: fecha,
+                cliente: titulo
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
 
+            calendar.refetchEvents();
+
+        });
+
+    }
 }
 
-}
 
 function eliminarEntrega(){
 
-if(eventoSeleccionado){
-eventoSeleccionado.remove();
-eventoSeleccionado = null;
-alert("Entrega eliminada");
-}else{
-alert("Selecciona primero un evento del calendario");
-}
+    if(eventoSeleccionado){
+
+        let id = eventoSeleccionado.id;
+
+        fetch('/api/entregas/' + id, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        })
+        .then(() => {
+            eventoSeleccionado.remove();
+            eventoSeleccionado = null;
+            alert("Entrega eliminada");
+        });
+
+    }else{
+        alert("Selecciona primero un evento");
+    }
 
 }
 

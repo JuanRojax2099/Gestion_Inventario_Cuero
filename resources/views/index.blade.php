@@ -24,22 +24,31 @@ Sistema de gestión de procesos e insumos
 
 <div class="card p-4 shadow" style="width:350px">
 
-<form method="GET" action="/landing">
+<form action="{{ route('validate') }}" method="POST">
 @csrf
 <div class="mb-3">
 <label class="form-label">Correo</label>
-<input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com">
+<input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" value="{{ old('email') }}" required>
+@error('email')<span class="text-danger">{{ $message }}</span>@enderror
 </div>
 
 <div class="mb-3">
 <label class="form-label">Contraseña</label>
-<input type="password" name="password" class="form-control" placeholder="********">
+<input type="password" name="password" class="form-control" placeholder="********" required>
+@error('password')<span class="text-danger">{{ $message }}</span>@enderror
 </div>
 
 <div class="d-grid">
-<button class="btn btn-success">Ingresar</button>
+<button type="submit" class="btn btn-success">Ingresar</button>
 </div>
 
+@if($errors->any())
+    <div class="alert alert-danger mt-2">
+        @foreach($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+    </div>
+@endif
 </form>
 
 </div>
