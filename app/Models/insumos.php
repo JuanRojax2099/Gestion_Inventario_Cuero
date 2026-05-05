@@ -17,6 +17,11 @@ class insumos extends Model
         'categoria',
         'proveedor'
     ];
+
+    public function productos()
+    {
+        return $this->belongsToMany(producto::class, 'producto_insumo');
+    }
     /**
      * Constructor privado basado en los atributos fillable. GUIA 6 ARQUITECTURA Y DISEÑO
      */

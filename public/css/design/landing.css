@@ -1,12 +1,10 @@
-.btn-verde{
-background-color:#0b3d2e;
-color:white;
-border:none;
+.btn-logout{
+background-color: red;
+border-radius: 0;
 }
-
-.btn-verde:hover{
-background-color:#145c45;
-color:white;
+.btn-logout:hover{
+    background-color: rgb(204, 0, 0);
+    scale: 1.1;
 }
 body{
 background-color:#f4f6f5;
@@ -35,5 +33,12 @@ transition:0.3s;
 .card-menu:hover{
 transform:scale(1.05);
 }
-
+.btn-crear{
+background-color:#11805e;
+border-radius: 0;
+}
+.btn-crear:hover{
+    background-color:#00c98c ;
+    scale: 1.1;
+}
 /* Estilos para el footer */

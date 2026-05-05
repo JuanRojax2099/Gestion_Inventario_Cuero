@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\entregas;
+//Añadir El factory Method a los controladores
 class EntregasController extends Controller
 {
     public function store(Request $request){
@@ -32,7 +33,6 @@ class EntregasController extends Controller
                 'message'=>'Error',
                 'status'=>500
             ];
-   
             return response()->json($data, 500);
         }
         $data =[
@@ -70,7 +70,7 @@ class EntregasController extends Controller
             'status'=>404
         ], 404);
     }
-    
+
     $entrega->delete();
     
     return response()->json([
