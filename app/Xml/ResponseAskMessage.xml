@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE agenda SYSTEM "xmlrule.dtd">
+
+<agenda>
+    <Correo>
+        <to>server</to>
+        <from>client</from>
+        <heading>createUser</heading>
+        <body>
+            <name>Juan Rojas</name>
+            <email>juan@email.com</email>
+            <password>123456</password>
+        </body>
+    </Correo>
+</agenda>

@@ -18,6 +18,11 @@ class producto extends Model implements interfaceFactorys
 
     ];
 
+    public function insumos()
+    {
+        return $this->belongsToMany(insumos::class, 'producto_insumo');
+    }
+
     /**
      * Constructor privado basado en los atributos fillable. GUIA 6 ARQUITECTURA Y DISEÑO
      */

@@ -16,10 +16,10 @@
 <div class="container mt-4">
 
 <h2 class="text-center mb-4">Calendario de Producción y Entregas</h2>
-
+<!-- Botones para crear y eliminar entregas -->
 <div class="mb-3 text-end">
 <button class="btn btn-verde" onclick="crearEntrega()">Crear entrega</button>
-<button class="btn btn-verde" onclick="eliminarEntrega()">Eliminar entrega</button>
+<button class="btn btn-verde" onclick="eliminarEntrega()">Eliminar entrega</button><!-- Eliminar Boton de "Eliminar entrega" -->
 </div>
 
 <div id="calendar"></div>
@@ -27,7 +27,8 @@
 </div>
 
 <script>
-
+//Javascript
+//Crer boton en la misma cuadricula: "Eliminar esta entrega?"
 let calendar;
 let eventoSeleccionado = null;
 
