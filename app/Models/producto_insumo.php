@@ -16,6 +16,16 @@ class producto_insumo extends Model
         'insumo_id',
     ];
 
+    public function producto()
+    {
+        return $this->belongsTo(producto::class, 'producto_id');
+    }
+
+    public function insumo()
+    {
+        return $this->belongsTo(insumos::class, 'insumo_id');
+    }
+
     /**
      * Constructor privado basado en los atributos fillable. GUIA 6 ARQUITECTURA Y DISEÑO
      */

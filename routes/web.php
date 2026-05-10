@@ -5,7 +5,7 @@ use App\Http\Controllers\usercontroller;
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\EntregasController;
 use App\Http\Controllers\InsumosController;
-use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\InventoryController;
 Route::get('/Login', function () {
     return view('index');
 });
@@ -27,5 +27,5 @@ Route::middleware('auth')->group(function () {
     })->name('CreateDelivery');
     Route::post('/insumos', [InsumosController::class, 'store'])->name('insumos.store');
     Route::post('/productos', [ProductoController::class, 'store'])->name('productos.store');
-    Route::get('/inventario',[InsumosController::class,'index'])->name('inventario');
+    Route::get('/inventario', [InventoryController::class, 'index'])->name('inventario');
 });
