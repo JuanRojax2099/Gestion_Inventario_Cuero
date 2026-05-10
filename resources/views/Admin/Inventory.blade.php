@@ -130,9 +130,81 @@
                 </table>
             </div>
             <div class="footer-actions">
+                <button class="btn-back" onclick="toggleProductos()">Ver Productos</button>
+                <button class="btn-back" onclick="toggleProductoInsumo()">Ver Producto-Insumo</button>
                 <a href="{{ url()->previous() }}" class="btn-back">Volver</a>
             </div>
         </div>
     </div>
+    <div id="productos-section" style="display: none; margin-top: 30px;">
+        <div class="inventory-card">
+            <div class="inventory-panel">
+                <div class="inventory-header">
+                    <div>id</div>
+                    <div>Nombre</div>
+                    <div>Descripción</div>
+                    <div>Precio Unitario</div>
+                </div>
+                <table class="inventory-table">
+                    <tbody>
+                        @forelse($productos ?? [] as $producto)
+                            <tr>
+                                <td>{{ $producto->id }}</td>
+                                <td>{{ $producto->nombre }}</td>
+                                <td>{{ $producto->descripción }}</td>
+                                <td>{{ $producto->precio_unitario }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="4" class="no-data">No hay productos registrados.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="producto-insumo-section" style="display: none; margin-top: 30px;">
+        <div class="inventory-card">
+            <div class="inventory-panel">
+                <div class="inventory-header">
+                    <div>Producto ID</div>
+                    <div>Insumo ID</div>
+                </div>
+                <table class="inventory-table">
+                    <tbody>
+                        @forelse($producto_insumo ?? [] as $relacion)
+                            <tr>
+                                <td>{{ $relacion->producto_id }}</td>
+                                <td>{{ $relacion->insumo_id }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2" class="no-data">No hay relaciones producto-insumo registradas.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleProductos() {
+            var section = document.getElementById('productos-section');
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+        function toggleProductoInsumo() {
+            var section = document.getElementById('producto-insumo-section');
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
