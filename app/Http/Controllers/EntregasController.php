@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\entregas;
+use App\Models\factura;
 //Añadir El factory Method a los controladores
 class EntregasController extends Controller
 {
@@ -53,12 +54,35 @@ class EntregasController extends Controller
             'date' => $entrega->fecha,
             'extendedProps' => [
                 'factura_id' => $entrega->factura_id,
-                'cliente' => $entrega->cliente
+                'cliente' => $entrega->cliente,
+                'fecha' => $entrega->fecha
             ]
         ];
     });
     
     return response()->json($eventos, 200);
+  }
+
+  public function show($id){
+    $entrega = entregas::find($id);
+    if(!$entrega){
+        return response()->json([
+            'message' => 'Entrega no encontrada',
+            'status' => 404
+        ], 404);
+    }
+    return response()->json($entrega, 200);
+  }
+
+  public function showFactura($id){
+    $factura = factura::find($id);
+    if(!$factura){
+        return response()->json([
+            'message' => 'Factura no encontrada',
+            'status' => 404
+        ], 404);
+    }
+    return response()->json($factura, 200);
   }
   
   public function destroy($id){
