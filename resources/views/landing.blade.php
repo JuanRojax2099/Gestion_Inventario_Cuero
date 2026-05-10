@@ -14,15 +14,12 @@
 
 <div class="header d-flex justify-content-between align-items-center px-4">
 <h2>Sistema de Gestión de Marroquinería</h2>
-<!--<a href="{{route('calendario') }}" class="btn btn-crear">Nueva instancia</a>
-<form action="{{ route('logout') }}" method="POST" style="margin: 0;">
-@csrf
-<button type="submit" style="background-color:red; border-radius:10">Cerrar Sesión</button>
-</form>-->
+
 <div class="col col-sm-3">
+
     <button class="btn btn-crear ml-1" data-bs-toggle="modal" data-bs-target="#createModal">Crear nueva instancia</button>
     <div class="btn btn-logout md-1">
-        <a>Cerrar sesión</a>
+        <a href="{{route('logout')}}" class="text text-black text-decoration-none">Cerrar sesión</a>
     </div>
 </div>
 </div>
@@ -57,7 +54,7 @@
 <div class="card-body">
 <h5>Inventario</h5>
 <p>Administrar insumos y productos.</p>
-<a href="#" class="btn btn-success">Abrir</a>
+<a href="/inventario" class="btn btn-success">Abrir</a>
 </div>
 </div>
 </div>

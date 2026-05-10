@@ -62,6 +62,7 @@ class SignController extends Controller
         // Regenerar sesión
         $request->session()->regenerate();
         
+        //return response()->json(['message' => 'si',$validated],200);
         return redirect()->intended('/landing');
     }
     

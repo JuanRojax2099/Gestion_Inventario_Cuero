@@ -1,8 +1,8 @@
 <?php
 #Todos los modelos son DE Arquitectura de diseño de datos.
 namespace App\Models;
-use App\FactoryMethod\interfaceFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class insumos extends Model
 {
@@ -30,6 +30,34 @@ class insumos extends Model
         foreach ($this->fillable as $attribute) {
             $this->attributes[$attribute] = null;
         }
+    }
+
+    /**
+     * Factory Method: Crea una nueva instancia de insumo
+     * 
+     * @param array $attributes Atributos iniciales del insumo
+     * @return self Nueva instancia de insumo
+     */
+    public static function factory(array $attributes = []): self
+    {
+        $insumo = new self();
+        foreach ($attributes as $key => $value) {
+            $insumo->$key = $value;
+        }
+        return $insumo;
+    }
+
+    /**
+     * Factory Method: Crea y guarda una nueva instancia de insumo
+     * 
+     * @param array $attributes Atributos del insumo a crear
+     * @return self Insumo creado y guardado en la BD
+     */
+    public static function createInsumo(array $attributes): self
+    {
+        $insumo = self::factory($attributes);
+        $insumo->save();
+        return $insumo;
     }
 
     public function createInventory($nombre){

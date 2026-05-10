@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Models;
-use App\FactoryMethod\interfaceFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class producto extends Model implements interfaceFactorys
+class producto extends Model
 {
-        use HasFactory;
+    use HasFactory;
 #Tablas de mi base de datos.
     protected $table ='producto';
 
@@ -33,9 +33,37 @@ class producto extends Model implements interfaceFactorys
         }
     }
 
-        public function createInventory($nombre){
-           //Crear Coso que meta los datos
+    /**
+     * Factory Method: Crea una nueva instancia de producto
+     * 
+     * @param array $attributes Atributos iniciales del producto
+     * @return self Nueva instancia de producto
+     */
+    public static function factory(array $attributes = []): self
+    {
+        $producto = new self();
+        foreach ($attributes as $key => $value) {
+            $producto->$key = $value;
         }
-          #public function GetId($id){return this->$id;}
+        return $producto;
+    }
+
+    /**
+     * Factory Method: Crea y guarda una nueva instancia de producto
+     * 
+     * @param array $attributes Atributos del producto a crear
+     * @return self Producto creado y guardado en la BD
+     */
+    public static function createProducto(array $attributes): self
+    {
+        $producto = self::factory($attributes);
+        $producto->save();
+        return $producto;
+    }
+
+    public function createInventory($nombre){
+       //Crear Coso que meta los datos
+    }
+      #public function GetId($id){return this->$id;}
 
 }

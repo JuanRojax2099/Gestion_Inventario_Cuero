@@ -7,6 +7,10 @@ use App\Models\insumos;
 
 class InsumosController extends Controller
 {
+    public function index(){
+        $consulta = insumos::all();
+        return view('admin.inventory',compact('consulta'));
+    }
     public function store(Request $request)
     {
         $request->validate([
