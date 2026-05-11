@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:not="http://notificaciones.com/errores">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <not:notificacionError>
+            <not:codigo>Error404</not:codigo>
+            <not:mensaje>
+                Recurso no encontrado
+            </not:mensaje>
+            <not:fecha>
+                2026-05-10
+            </not:fecha>
+        </not:notificacionError>
+    </soapenv:Body>
+</soapenv:Envelope>

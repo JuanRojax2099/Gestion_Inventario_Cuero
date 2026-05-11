@@ -13,3 +13,5 @@ Route::prefix('entregas')->group(function () {
     Route::delete('/{id}', [EntregasController::class, 'destroy']);            
     Route::get('/{id}', [EntregasController::class, 'show']);              
 });
+
+Route::get('/facturas/{id}', [EntregasController::class, 'showFactura']);

@@ -9,7 +9,6 @@
         <body>
             <name>Juan Rojas</name>
             <email>juan@email.com</email>
-            <password>123456</password>
         </body>
     </Correo>
 </agenda>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class producto_insumo extends Model
 {
@@ -25,6 +26,34 @@ class producto_insumo extends Model
         }
     }
 
-        #public function GetId($id){return this->$id;}
+    /**
+     * Factory Method: Crea una nueva instancia de relación producto-insumo
+     * 
+     * @param array $attributes Atributos iniciales de la relación
+     * @return self Nueva instancia de relación
+     */
+    public static function factory(array $attributes = []): self
+    {
+        $relacion = new self();
+        foreach ($attributes as $key => $value) {
+            $relacion->$key = $value;
+        }
+        return $relacion;
+    }
+
+    /**
+     * Factory Method: Crea y guarda una nueva relación producto-insumo
+     * 
+     * @param array $attributes Atributos de la relación a crear
+     * @return self Relación creada y guardada en la BD
+     */
+    public static function createRelacion(array $attributes): self
+    {
+        $relacion = self::factory($attributes);
+        $relacion->save();
+        return $relacion;
+    }
+
+    #public function GetId($id){return this->$id;}
 
 }

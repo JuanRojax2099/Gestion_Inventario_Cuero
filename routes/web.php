@@ -13,7 +13,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::post('/validate', [SignController::class, 'loginWeb'])->name('validate');
-Route::post('/logout', [SignController::class, 'logout'])->name('logout');
+Route::get('/logout', [SignController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/landing', [App\Http\Controllers\LandingController::class, 'index'])->name('landing');
     Route::get('/historial', function () {
@@ -27,4 +27,5 @@ Route::middleware('auth')->group(function () {
     })->name('CreateDelivery');
     Route::post('/insumos', [InsumosController::class, 'store'])->name('insumos.store');
     Route::post('/productos', [ProductoController::class, 'store'])->name('productos.store');
+    Route::get('/inventario',[InsumosController::class,'index'])->name('inventario');
 });
