@@ -111,6 +111,7 @@
                     <div>Proveedor</div>
                 </div>
                 <table class="inventory-table">
+                    <th><th>
                     <tbody>
                         @forelse($consulta ?? [] as $insumo)
                             <tr>
@@ -172,6 +173,7 @@
                     <div>Insumo ID</div>
                 </div>
                 <table class="inventory-table">
+                    <th><th>
                     <tbody>
                         @forelse($producto_insumo ?? [] as $relacion)
                             <tr>
