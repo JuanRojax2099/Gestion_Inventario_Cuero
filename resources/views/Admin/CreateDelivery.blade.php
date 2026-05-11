@@ -4,14 +4,14 @@
 <div class="">
     <div class="container">
         <div class="mb-3">
-        <label  class=" form-control form-label">Example label</label>
+        <label  class=" form-control ">Example label</label>
         <input type="text" class="form-control"  placeholder="factura_id">
         </div>
         <div class="mb-3">
         <input type="text" class="form-control"  placeholder="cliente">
         </div>
         <div class="mb-3">
-        <label class=" form-controlform-label">Another label</label>
+        <label class=" form-control ">Another label</label>
         <input type="date" class="form-control"  placeholder="Fecha">
         </div>
     </div>
