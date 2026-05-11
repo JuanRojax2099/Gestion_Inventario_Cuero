@@ -147,6 +147,7 @@
                     <div>Precio Unitario</div>
                 </div>
                 <table class="inventory-table">
+                    <th><th>
                     <tbody>
                         @forelse($productos ?? [] as $producto)
                             <tr>
