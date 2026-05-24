@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Calendario de Producción</title>
 
+<link rel="stylesheet" href="{{ asset('css/design/Schedule.css') }}">
 <link rel="stylesheet" href="{{ asset('css/bootstrap5.8.3/css/bootstrap.min.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
 
@@ -11,26 +12,26 @@
 
 </head>
 
-<body class="bg-light">
+<body class="bg-dark text-white">
 
-<div class="container mt-4">
+<div class="container mt-4 ">
 
 <h2 class="text-center mb-4">Calendario de Producción y Entregas</h2>
 <!-- Botones para crear y eliminar entregas -->
-<div class="mb-3 text-end">
-<button class="btn btn-verde" onclick="crearEntrega()">Crear entrega</button>
-<button class="btn btn-verde" onclick="eliminarEntrega()">Eliminar entrega</button><!-- Eliminar Boton de "Eliminar entrega" -->
+<div class="mb-3 text-end backg">
+<button class="btn-buttom" onclick="crearEntrega()">Crear entrega</button>
+<button class="btn-buttom" onclick="eliminarEntrega()">Eliminar entrega</button><!-- Eliminar Boton de "Eliminar entrega" -->
 </div>
 
 <div id="calendar"></div>
 
-<div id="entrega-details" class="mt-4 p-3 bg-white rounded shadow-sm" style="display:none;">
+<div id="entrega-details" class="mt-4 p-3 text-dark bg-white rounded shadow-sm" style="display:none;">
     <h5>Detalle de entrega seleccionada</h5>
     <p id="detalle-entrega-text" class="mb-2">Selecciona un día con entrega para ver la información.</p>
     <button id="btn-ver-factura" type="button" class="btn btn-primary btn-sm" onclick="verFacturaSeleccionada()" disabled>Ver factura</button>
 </div>
 
-<div id="factura-details" class="mt-3 p-3 bg-white rounded shadow-sm" style="display:none;">
+<div id="factura-details" class="mt-3 p-3 text-dark bg-white rounded shadow-sm" style="display:none;">
     <h5>Detalle de factura</h5>
     <p id="detalle-factura-text"></p>
 </div>

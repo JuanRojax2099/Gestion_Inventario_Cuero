@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body class="bg-dark">
 
 <div class="header d-flex justify-content-between align-items-center px-4">
 <h2>Sistema de Gestión de Marroquinería</h2>
