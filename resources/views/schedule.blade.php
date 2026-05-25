@@ -77,6 +77,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 fecha: info.event.extendedProps.fecha,
                 title: info.event.title
             };
+            if (entregaSeleccionada.factura_id) {
+                window.location.href = '/admin/factura/' + entregaSeleccionada.factura_id;
+                return;
+            }
             mostrarDetalleEntrega(entregaSeleccionada);
         },
 
@@ -128,25 +132,7 @@ function verFacturaSeleccionada(){
         return;
     }
 
-    fetch('/api/facturas/' + entregaSeleccionada.factura_id)
-        .then(response => response.json())
-        .then(data => {
-            if(data.status === 404){
-                alert('Factura no encontrada.');
-                return;
-            }
-            const detallesFactura = document.getElementById('factura-details');
-            const textoFactura = document.getElementById('detalle-factura-text');
-            detallesFactura.style.display = 'block';
-            textoFactura.innerHTML = '<strong>ID factura:</strong> ' + data.id + '<br>' +
-                '<strong>Proveedor:</strong> ' + (data.proveedor || 'N/A') + '<br>' +
-                '<strong>Fecha:</strong> ' + (data.fecha || 'N/A') + '<br>' +
-                '<strong>Detalles:</strong> ' + (data.detalles || 'N/A');
-        })
-        .catch(error => {
-            console.error('Error al cargar factura:', error);
-            alert('No se pudo cargar la factura.');
-        });
+    window.location.href = '/admin/factura/' + entregaSeleccionada.factura_id;
 }
 
 function crearEntrega(){

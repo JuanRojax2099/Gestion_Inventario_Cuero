@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\entregas;
 use App\Models\factura;
+use App\Models\factura_detalles;
+use App\Models\producto;
+
 //Añadir El factory Method a los controladores
 class EntregasController extends Controller
 {
@@ -83,6 +86,30 @@ class EntregasController extends Controller
         ], 404);
     }
     return response()->json($factura, 200);
+  }
+
+  public function showFacturaDetails($id)
+  {
+      $factura = factura::find($id);
+      if (! $factura) {
+          return redirect()->route('calendario')->with('error', 'Factura no encontrada');
+      }
+
+      $detalles = factura_detalles::where('id_factura', $id)->get();
+      $detalleItems = $detalles->map(function ($detalle) {
+          $producto = producto::find($detalle->producto);
+          return [
+              'id' => $detalle->producto,
+              'nombre' => $producto?->nombre ?? 'Producto #' . $detalle->producto,
+              'cantidad' => $detalle->cantidad,
+              'unidad' => $producto?->unidad ?? 'N/A',
+          ];
+      });
+
+      return view('Admin.FacturaDetails', [
+          'factura' => $factura,
+          'detalleItems' => $detalleItems,
+      ]);
   }
   
   public function destroy($id){

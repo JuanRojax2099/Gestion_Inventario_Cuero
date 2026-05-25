@@ -38,4 +38,5 @@ Route::middleware('auth')->group(function () {
         return view('admin.InsumosDetail', ['insumo' => $insumo]);
     })->name('admin.insumo.detail');
     Route::get('/admin/producto/{id}', [ProductoDetailController::class, 'show'])->name('admin.producto.detail');
+    Route::get('/admin/factura/{id}', [EntregasController::class, 'showFacturaDetails'])->name('admin.factura.details');
 });

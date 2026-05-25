@@ -17,7 +17,8 @@ class producto extends Model
         'id',
         'nombre',
         'descripción',
-        'precio_unitario'
+        'precio_unitario',
+        'unidad'
 
     ];
 
