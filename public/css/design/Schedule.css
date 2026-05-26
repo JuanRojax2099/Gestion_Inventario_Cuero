@@ -1,0 +1,16 @@
+.btn-buttom{
+    color:white;
+    background-color:rgb(5, 102, 29);
+    padding-bottom: 1%;
+    padding-top: 1%;
+    padding-left: 1%;
+    border:0;
+    padding-right: 1%;
+    border-radius: 1px;
+}
+.btn-buttom:hover{
+    scale:1.1;
+}
+.backg{
+    background-color:rgb(5, 102, 29);
+}

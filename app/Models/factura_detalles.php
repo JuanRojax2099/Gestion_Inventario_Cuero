@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\producto;
 
 class factura_detalles extends Model
 {
@@ -24,6 +26,16 @@ class factura_detalles extends Model
         foreach ($this->fillable as $attribute) {
             $this->attributes[$attribute] = null;
         }
+    }
+
+    public function factura()
+    {
+        return $this->belongsTo(factura::class, 'id_factura');
+    }
+
+    public function productoRecord()
+    {
+        return $this->belongsTo(producto::class, 'producto', 'id');
     }
 
         #public function GetId($id){return this->$id;}

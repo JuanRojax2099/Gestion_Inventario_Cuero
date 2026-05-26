@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class insumos extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
 #Tablas de mi base de datos.
     protected $table ='insumos';
 #Creación de valores guia 5 diseño cliente servidor.
     protected $fillable =[
-        'nombre',
+        'name',
         'unidad',
         'cantidad',
         'categoria',

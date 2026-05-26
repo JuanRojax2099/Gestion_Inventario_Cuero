@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\factura_detalles;
 
 class factura extends Model
 {
@@ -26,6 +27,11 @@ class factura extends Model
         foreach ($this->fillable as $attribute) {
             $this->attributes[$attribute] = null;
         }
+    }
+
+    public function detalles()
+    {
+        return $this->hasMany(factura_detalles::class, 'id_factura');
     }
 
         #public function GetId($id){return this->$id;}
