@@ -10,8 +10,5 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
-    function InsumoDestroyer($id){
-        //
-    }
-    function GetOverHereInsumo(){}
+
 }

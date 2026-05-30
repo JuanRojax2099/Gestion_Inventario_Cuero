@@ -37,7 +37,6 @@ class SimpleFactory implements factoryInterface
             )
         };
     }
-
     /**
      * Método alternativo: crea una instancia con atributos iniciales
      * 
@@ -57,7 +56,6 @@ class SimpleFactory implements factoryInterface
         
         return $model;
     }
-
     /**
      * Método para obtener el tipo de modelo según el nombre
      * 
@@ -75,7 +73,6 @@ class SimpleFactory implements factoryInterface
             )
         };
     }
-
     /**
      * Crea una instancia usando el nombre del modelo como string
      * 
